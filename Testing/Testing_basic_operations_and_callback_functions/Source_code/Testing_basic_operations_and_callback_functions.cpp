@@ -153,7 +153,7 @@ void cbMouse(int button, int state, int x, int y){
 }
 
 void cbMouseMotion(int x, int y){
-	std::cout << "您正在於(" << x << ',' << y << ")進行滑鼠拖曳操作。" << std::endl;
+	std::cout << DEBUG_TAG "您正在於(" << x << ',' << y << ")進行滑鼠拖曳操作。" << std::endl;
 
 	return;
 }
