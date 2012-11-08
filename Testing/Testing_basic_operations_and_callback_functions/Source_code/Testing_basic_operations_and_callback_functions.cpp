@@ -224,7 +224,6 @@ void cbMenuSelectOperation(int selection){
 	default:
 		std::cout << "未知的操作";
 	}
-
 	std::cout << "。" << std::endl;
 
 	return;
