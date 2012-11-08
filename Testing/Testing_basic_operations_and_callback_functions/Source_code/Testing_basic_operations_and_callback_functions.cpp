@@ -61,9 +61,6 @@ Testing_basic_operations_and_callback_functions.cpp
 
 /*||||| 主要程式碼 | Main Code |||||*/
 int main(int argc, char *argv[]){
-
-	int handle_menu_main;
-		/* handle for main menu */
 	int handle_submenu_selectColor, handle_submenu_selectOperation;
 		/* a handle of submenus */
 
@@ -102,7 +99,7 @@ int main(int argc, char *argv[]){
 			glutAddMenuEntry("結束程式 | Exit program", SELECTOPERATION_EXIT);
 
 		/* 註冊主選單 */
-			handle_menu_main = glutCreateMenu(cbMenuMain);
+			glutCreateMenu(cbMenuMain);
 		/* 新增子選單於主選單上 */
 			glutAddSubMenu("選取顏色 | Select color", handle_submenu_selectColor);
 			glutAddSubMenu("選取操作 | Select operation", handle_submenu_selectOperation);
