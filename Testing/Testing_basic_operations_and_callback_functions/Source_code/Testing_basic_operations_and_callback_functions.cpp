@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
 	int handle_submenu_selectColor, handle_submenu_selectOperation;
 		/* a handle of submenus */
 
-	show_software_info("Testing_basic_operations_and_callback_functions.cpp");
+	show_software_info(__FILE__);
 /* restart_program: */
 
 	/* GLUT 初始化？ */
