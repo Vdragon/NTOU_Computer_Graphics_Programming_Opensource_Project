@@ -58,6 +58,8 @@ Testing_basic_operations_and_callback_functions.cpp
 	void cbMenuSelectOperation(int selection);
 
 /*||||| 全域變數 | Global Variables |||||*/
+	int window_current_width = 600, window_current_height = 360;
+		/* current width and height of window */
 
 /*||||| 主要程式碼 | Main Code |||||*/
 int main(int argc, char *argv[]){
@@ -70,7 +72,8 @@ int main(int argc, char *argv[]){
 	/* GLUT 初始化？ */
 	glutInit(&argc, argv);
 	glutInitWindowPosition(0, 0);
-	glutInitWindowSize(600,360);
+	glutInitWindowSize(window_current_width, window_current_height);
+		/* set window size */
 	glutInitDisplayMode(GLUT_RGBA);
 	glutCreateWindow(SOFTWARE_NAME);
 		/* 因為我們沒有要建立多個視窗，我們不需要使用此函式傳回的視窗(window)ID */
