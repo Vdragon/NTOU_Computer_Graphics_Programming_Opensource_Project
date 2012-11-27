@@ -186,8 +186,6 @@ void cbReshape(int width, int height){
 		window_current_height = height;
 		window_current_width = width;
 
-	/* TODO : 這裡有一些還沒看懂的範例函式呼叫 */
-
 	/* 畫面被更動了，讓 display callback 函式再被呼叫 */
 		glutPostRedisplay();
 
