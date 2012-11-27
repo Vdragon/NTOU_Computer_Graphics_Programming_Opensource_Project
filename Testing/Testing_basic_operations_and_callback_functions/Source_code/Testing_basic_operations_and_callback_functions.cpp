@@ -182,6 +182,9 @@ void cbDisplay(void){
 
 void cbReshape(int width, int height){
 	std::cout << DEBUG_TAG "cbReshape()被呼叫。" << std::endl;
+	/* set current width/height to global variable */
+		window_current_height = height;
+		window_current_width = width;
 
 	/* TODO : 這裡有一些還沒看懂的範例函式呼叫 */
 
