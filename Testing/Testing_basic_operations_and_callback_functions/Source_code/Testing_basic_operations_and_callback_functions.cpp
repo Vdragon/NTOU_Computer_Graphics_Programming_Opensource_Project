@@ -51,7 +51,7 @@ Testing_basic_operations_and_callback_functions.cpp
 		/* 滑鼠拖曳事件的 callback 函式 */
 	void cbDisplay(void);
 		/* 視窗顯示事件的 callback 函式 */
-	void cbReshape(int width, int height);
+	void cbReshape(int new_width, int new_height);
 		/* 視窗變形事件的 callback 函式 */
 	void cbMenuMain(int selection);
 	void cbMenuSelectColor(int selection);
@@ -180,11 +180,11 @@ void cbDisplay(void){
 	return;
 }
 
-void cbReshape(int width, int height){
+void cbReshape(int new_width, int new_height){
 	std::cout << DEBUG_TAG "cbReshape()被呼叫。" << std::endl;
 	/* set current width/height to global variable */
-		window_current_height = height;
-		window_current_width = width;
+		window_current_height = new_height;
+		window_current_width = new_width;
 
 	/* 畫面被更動了，讓 display callback 函式再被呼叫 */
 		glutPostRedisplay();
