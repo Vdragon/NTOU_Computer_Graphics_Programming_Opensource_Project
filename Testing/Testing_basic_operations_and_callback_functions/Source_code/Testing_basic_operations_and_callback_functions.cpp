@@ -71,12 +71,16 @@ int main(int argc, char *argv[]){
 
 	/* GLUT 初始化？ */
 	glutInit(&argc, argv);
+		/* make a session with the window system */
 	glutInitWindowPosition(0, 0);
+		/* set window position */
 	glutInitWindowSize(window_current_width, window_current_height);
 		/* set window size */
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
+		/* set display mode */
 	glutCreateWindow(SOFTWARE_NAME);
-		/* 因為我們沒有要建立多個視窗，我們不需要使用此函式傳回的視窗(window)ID */
+		/* create a window
+		   因為我們沒有要建立多個視窗，我們不需要使用此函式傳回的視窗(window)ID */
 
 	/* Register callback functions */
 		glutKeyboardFunc(cbKeyboard);
