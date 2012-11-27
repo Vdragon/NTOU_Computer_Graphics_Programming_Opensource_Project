@@ -74,7 +74,7 @@ int main(int argc, char *argv[]){
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(window_current_width, window_current_height);
 		/* set window size */
-	glutInitDisplayMode(GLUT_RGBA);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 	glutCreateWindow(SOFTWARE_NAME);
 		/* 因為我們沒有要建立多個視窗，我們不需要使用此函式傳回的視窗(window)ID */
 
