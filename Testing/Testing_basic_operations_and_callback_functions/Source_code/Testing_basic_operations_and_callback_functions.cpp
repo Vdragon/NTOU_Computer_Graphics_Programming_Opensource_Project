@@ -49,9 +49,9 @@ Testing_basic_operations_and_callback_functions.cpp
 		/* 滑鼠事件的 callback 函式 */
 	void cbMouseMotion(int x, int y);
 		/* 滑鼠拖曳事件的 callback 函式 */
-	void cbDisplay(void);
+	void cbWindowDisplay(void);
 		/* 視窗顯示事件的 callback 函式 */
-	void cbReshape(int new_width, int new_height);
+	void cbWindowReshape(int new_width, int new_height);
 		/* 視窗變形事件的 callback 函式 */
 	void cbMenuMain(int selection);
 	void cbMenuSelectColor(int selection);
@@ -86,8 +86,8 @@ int main(int argc, char *argv[]){
 		glutKeyboardFunc(cbKeyboard);
 		glutMouseFunc(cbMouse);
 		glutMotionFunc(cbMouseMotion);
-		glutDisplayFunc(cbDisplay);
-		glutReshapeFunc(cbReshape);
+		glutDisplayFunc(cbWindowDisplay);
+		glutReshapeFunc(cbWindowReshape);
 
 	/* 註冊選單與選單的 callback 函式 */
 		/* 註冊一個選單的 callback 函式並獲取一個 menu handle */
@@ -165,8 +165,8 @@ void cbMouseMotion(int x, int y){
 	return;
 }
 
-void cbDisplay(void){
-	std::cout << DEBUG_TAG "cbDisplay()被呼叫。" << std::endl;
+void cbWindowDisplay(void){
+	std::cout << DEBUG_TAG "cbWindowDisplay()被呼叫。" << std::endl;
 		/* TODO : 弄懂何時會呼叫此 callback 函式
 		 * 　目前視窗的露出並不會造成此函式的 callback 與預期不符。 */
 
@@ -180,8 +180,8 @@ void cbDisplay(void){
 	return;
 }
 
-void cbReshape(int new_width, int new_height){
-	std::cout << DEBUG_TAG "cbReshape()被呼叫。" << std::endl;
+void cbWindowReshape(int new_width, int new_height){
+	std::cout << DEBUG_TAG "cbWindowReshape()被呼叫。" << std::endl;
 	/* set current width/height to global variable */
 		window_current_height = new_height;
 		window_current_width = new_width;
