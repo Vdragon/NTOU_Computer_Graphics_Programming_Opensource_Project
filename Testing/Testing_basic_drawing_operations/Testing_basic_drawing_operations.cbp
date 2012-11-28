@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Testing_basic_drawing_operations" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug_Linux_x86_32bit">
+				<Option output="bin\Debug_Linux_x86_32bit\Hello_GLUT_world_CPP.Linux_x86_32bit.exe" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj\Debug_Linux_x86_32bit\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lglut" />
+				</Linker>
+			</Target>
+			<Target title="Release_Linux_x86_32bit">
+				<Option output="bin\Release_Linux_x86_32bit\Hello_GLUT_world_CPP.Linux_x86_32bit.exe" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj\Release_Linux_x86_32bit\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lglut" />
+				</Linker>
+			</Target>
+			<Target title="Debug_Windows_x86_32bit">
+				<Option output="bin\Debug_Windows_x86_32bit\Hello_GLUT_world_CPP.Windows_x86_32bit.exe" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj\Debug_Windows_x86_32bit\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="..\..\..\glut-3.7.6-bin" />
+				</Compiler>
+				<Linker>
+					<Add option="-lglut32 -lopengl32 -lglu32" />
+					<Add directory="..\..\..\glut-3.7.6-bin" />
+				</Linker>
+			</Target>
+			<Target title="Release_Windows_x86_32bit">
+				<Option output="bin\Release_Windows_x86_32bit\Hello_GLUT_world_CPP.Windows_x86_32bit.exe" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj\Release_Windows_x86_32bit\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+					<Add directory="..\..\..\glut-3.7.6-bin" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lglut32 -lopengl32 -lglu32" />
+					<Add directory="..\..\..\glut-3.7.6-bin" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Source_code\Project_specific_configurations\Debug.h" />
+		<Unit filename="Source_code\Project_specific_configurations\Math.h" />
+		<Unit filename="Source_code\Project_specific_configurations\Max_value.h" />
+		<Unit filename="Source_code\Project_specific_configurations\Software_info.h" />
+		<Unit filename="Source_code\Project_specific_configurations\System_category.h" />
+		<Unit filename="Source_code\Show_software_info\Show_software_info.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source_code\Show_software_info\Show_software_info.h" />
+		<Unit filename="Source_code\main.cpp" />
+		<Unit filename="Source_code\pauseProgram\Pause_program.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Source_code\pauseProgram\Pause_program.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars set="locale_en_us" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
