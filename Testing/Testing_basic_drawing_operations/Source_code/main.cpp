@@ -48,6 +48,7 @@ main.cpp
 		enum menu_selectDrawMode{
 			DRAW_POINT, DRAW_LINE, DRAW_SQUARE
 		};
+
 /*||||| 函式雛型 | Function Prototypes |||||*/
 /* callback functions */
 	void cbKeyboard(unsigned char key, int mouse_x, int mouse_y);
@@ -76,8 +77,9 @@ main.cpp
 	/* current draw parameters */
 		int draw_mode = DRAW_POINT;
 		int draw_size = 10;
-	/* workarounds for menu & mouse callback conflictions */
-		char menu_just_selected = 'n';
+	/* WORKAROUND : Mouse callback function will still be called with "button released" when the clicked object is actually a menu, workaround this problem by checking if the mouse release event is actually just after menu callback. */
+		char workaround_menu_clicked = 'n';
+
 /*||||| 主要程式碼 | Main Code |||||*/
 int main(int argc, char *argv[]){
 
@@ -146,15 +148,16 @@ void cbKeyboard(unsigned char key, int mouse_x, int mouse_y){
 }
 
 void cbMouse(int button, int state, int x, int y){
+	/* workaround : avoid mouse event when menu event just happened */
+		if(workaround_menu_clicked == 'y'){
+			workaround_menu_clicked = 'n';
+			return;
+		}
+
 #ifndef NDEBUG
 	std::cout << DEBUG_TAG "您於(" << x << ',' <<  y << ")位置"
 		<< (state == GLUT_DOWN ? MESSAGE_MOUSE_BUTTON_PRESSED : MESSAGE_MOUSE_BUTTON_RELEASED);
 #endif
-	/* avoid event just after clicking a menu entry */
-	if(menu_just_selected == 'y'){
-		menu_just_selected = 'n';
-		return;
-	}
 
 	switch(button){
 	case GLUT_LEFT_BUTTON:
@@ -191,7 +194,6 @@ void cbMouse(int button, int state, int x, int y){
 #endif
 		break;
 	}
-	menu_just_selected = 'y';
 	return;
 }
 
@@ -244,7 +246,9 @@ void cbReshape(int new_width, int new_height){
 
 void cbMenuMain(int selection){
 	/* do nothing now due to no clickable events */
-	menu_just_selected = 'y';
+
+	/* workaround */
+	workaround_menu_clicked = 'y';
 	return;
 }
 
@@ -268,13 +272,15 @@ void cbMenuSelectOperation(int selection){
 #ifndef NDEBUG
 	std::cout << "。" << std::endl;
 #endif
-	menu_just_selected = 'y';
+	/* workaround */
+	workaround_menu_clicked = 'y';
 	return;
 }
 
 void cbMenuSelectDrawMode(int selection){
 	draw_mode = selection;
-	menu_just_selected = 'y';
+	/* workaround */
+	workaround_menu_clicked = 'y';
 	return;
 }
 
