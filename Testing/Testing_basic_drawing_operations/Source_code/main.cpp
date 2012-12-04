@@ -155,62 +155,64 @@ void cbMouse(int button, int state, int x, int y){
 			return;
 		}
 
+	if(state == GLUT_DOWN){
 #ifndef NDEBUG
-	std::cout << DEBUG_TAG "您於(" << x << ',' <<  y << ")位置"
-		<< (state == GLUT_DOWN ? MESSAGE_MOUSE_BUTTON_PRESSED : MESSAGE_MOUSE_BUTTON_RELEASED);
+			std::cout << DEBUG_TAG "您於(" << x << ',' <<  y << ")位置"	<< MESSAGE_MOUSE_BUTTON_PRESSED;
 #endif
+		switch(button){
+		case GLUT_LEFT_BUTTON:
 
-	switch(button){
-	case GLUT_LEFT_BUTTON:
 #ifndef NDEBUG
-		std::cout << MESSAGE_MOUSE_BUTTON_LEFT << CJK_CHINESE_PERIOD << std::endl;
+			std::cout << MESSAGE_MOUSE_BUTTON_LEFT << CJK_CHINESE_PERIOD << std::endl;
 #endif
-		switch(draw_mode){
-		case DRAW_POINT:
-			drawPoint3f(x, y, 1, 0, 0, draw_size);
+			switch(draw_mode){
+			case DRAW_POINT:
+				drawPoint3f(x, y, 1, 0, 0, 1);
+				break;
+			case DRAW_LINE:
+				glColor3f(1,1,0);
+				glLineWidth(3);
+				glBegin(GL_LINES);
+					glVertex2f(x, window_height - y);
+					glVertex2f(x + 10, window_height - y -10);
+				glEnd();
+				glFlush();
+				break;
+			case DRAW_SQUARE:
+				drawSqare3f(x, y, 0, 0, 1, draw_size);
+				break;
+			case DRAW_POLYGON:
+				glBegin(GL_POLYGON);
+					glColor3f(1,0,1);
+					glVertex2f(x, window_height - y);
+					glColor3f(1,1,1);
+					glVertex2f(x + 10, window_height - y -10);
+					glColor3f(0,1,1);
+					glVertex2f(x - 10, window_height - y -10);
+				glEnd();
+				glFlush();
+			default:
+				break;
+			}
 			break;
-		case DRAW_LINE:
-			glColor3f(1,1,0);
-			glLineWidth(3);
-			glBegin(GL_LINES);
-				glVertex2f(x, window_height - y);
-				glVertex2f(x + 10, window_height - y -10);
-			glEnd();
-			glFlush();
+		case GLUT_MIDDLE_BUTTON:
+	#ifndef NDEBUG
+			std::cout << MESSAGE_MOUSE_BUTTON_MIDDLE << CJK_CHINESE_PERIOD << std::endl;
+	#endif
 			break;
-		case DRAW_SQUARE:
-			drawSqare3f(x, y, 0, 0, 1, draw_size);
+		case GLUT_RIGHT_BUTTON:
+	#ifndef NDEBUG
+			std::cout << MESSAGE_MOUSE_BUTTON_RIGHT << CJK_CHINESE_PERIOD << std::endl;
+	#endif
 			break;
-		case DRAW_POLYGON:
-			glBegin(GL_POLYGON);
-				glColor3f(1,0,1);
-				glVertex2f(x, window_height - y);
-				glColor3f(1,1,1);
-				glVertex2f(x + 10, window_height - y -10);
-				glColor3f(0,1,1);
-				glVertex2f(x - 10, window_height - y -10);
-			glEnd();
-			glFlush();
 		default:
+	#ifndef NDEBUG
+			std::cout << MESSAGE_MOUSE_BUTTON_UNKNOWN << CJK_CHINESE_PERIOD << std::endl;
+	#endif
 			break;
 		}
-		break;
-	case GLUT_MIDDLE_BUTTON:
-#ifndef NDEBUG
-		std::cout << MESSAGE_MOUSE_BUTTON_MIDDLE << CJK_CHINESE_PERIOD << std::endl;
-#endif
-		break;
-	case GLUT_RIGHT_BUTTON:
-#ifndef NDEBUG
-		std::cout << MESSAGE_MOUSE_BUTTON_RIGHT << CJK_CHINESE_PERIOD << std::endl;
-#endif
-		break;
-	default:
-#ifndef NDEBUG
-		std::cout << MESSAGE_MOUSE_BUTTON_UNKNOWN << CJK_CHINESE_PERIOD << std::endl;
-#endif
-		break;
 	}
+
 	return;
 }
 
