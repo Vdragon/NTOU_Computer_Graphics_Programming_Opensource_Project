@@ -46,7 +46,7 @@ main.cpp
 		};
 
 		enum menu_selectDrawMode{
-			DRAW_POINT, DRAW_LINE, DRAW_SQUARE, DRAW_POLYGON
+			DRAW_POINT, DRAW_LINE, DRAW_SQUARE, DRAW_POLYGON, DRAW_TRIANGLE
 		};
 
 /*||||| 函式雛型 | Function Prototypes |||||*/
@@ -114,6 +114,7 @@ int main(int argc, char *argv[]){
 			glutAddMenuEntry("Line", DRAW_LINE);
 			glutAddMenuEntry("Square", DRAW_SQUARE);
 			glutAddMenuEntry("Polygon", DRAW_POLYGON);
+			glutAddMenuEntry("Triangle", DRAW_TRIANGLE);
 
 		/* 註冊主選單 */
 			glutCreateMenu(cbMenuMain);
@@ -194,6 +195,18 @@ void cbMouse(int button, int state, int x, int y){
 					glVertex2f(x - 10, window_height - y + 10);
 					glColor3f(0,0,1);
 					glVertex2f(x + 10, window_height - y + 10);
+				glEnd();
+				glFlush();
+				break;
+			case DRAW_TRIANGLE:
+				glBegin(GL_TRIANGLES);
+					glColor3f(1,0,0);
+					glVertex2f(x, window_height - y);
+
+					glColor3f(0,1,0);
+					glVertex2f(x + 10, window_height - y -10);
+					glColor3f(0,0,1);
+					glVertex2f(x - 10, window_height - y -10);
 				glEnd();
 				glFlush();
 				break;
