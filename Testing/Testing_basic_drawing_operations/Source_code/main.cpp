@@ -41,8 +41,8 @@ main.cpp
 
 /*||||| Definition of data type, enumeration, data structure and class |||||*/
 	/* 選操作選單的項目 */
-		enum menu_selectOperation{
-			SELECTOPERATION_EXIT,
+		enum menu_selectSoftwareOperation{
+			SOFTWARE_EXIT,
 		};
 
 		enum menu_selectDrawMode{
@@ -83,7 +83,7 @@ main.cpp
 /*||||| 主要程式碼 | Main Code |||||*/
 int main(int argc, char *argv[]){
 
-	int handle_submenu_selectOperation, handle_submenu_selectDrawMode;
+	int handle_submenu_selectSoftwareOperation, handle_submenu_selectDrawMode;
 		/* a handle of submenus */
 
 	show_software_info(__FILE__);
@@ -106,9 +106,9 @@ int main(int argc, char *argv[]){
 
 	/* 註冊選單與選單的 callback 函式 */
 		/* 註冊一個選單的 callback 函式並獲取一個 menu handle */
-			handle_submenu_selectOperation = glutCreateMenu(cbMenuSelectOperation);
+			handle_submenu_selectSoftwareOperation = glutCreateMenu(cbMenuSelectOperation);
 				/* 新增選單中的項目 */
-					glutAddMenuEntry("Exit program", SELECTOPERATION_EXIT);
+					glutAddMenuEntry("Exit program", SOFTWARE_EXIT);
 		handle_submenu_selectDrawMode = glutCreateMenu(cbMenuSelectDrawMode);
 			glutAddMenuEntry("Point", DRAW_POINT);
 			glutAddMenuEntry("Line", DRAW_LINE);
@@ -118,7 +118,7 @@ int main(int argc, char *argv[]){
 		/* 註冊主選單 */
 			glutCreateMenu(cbMenuMain);
 		/* 新增子選單於主選單上 */
-			glutAddSubMenu("Select operation", handle_submenu_selectOperation);
+			glutAddSubMenu("Software operations", handle_submenu_selectSoftwareOperation);
 			glutAddSubMenu("Select draw mode", handle_submenu_selectDrawMode);
 		/* 將此選單與滑鼠中鍵綁定 */
 			glutAttachMenu(GLUT_RIGHT_BUTTON);
@@ -277,7 +277,7 @@ void cbMenuSelectOperation(int selection){
 	std::cout << DEBUG_TAG "您選擇了：";
 #endif
 	switch(selection){
-	case SELECTOPERATION_EXIT:
+	case SOFTWARE_EXIT:
 #ifndef NDEBUG
 		std::cout << "結束程式";
 #endif
