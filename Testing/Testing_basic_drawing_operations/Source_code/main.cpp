@@ -232,6 +232,7 @@ void cbDisplay(void){
 	/* 將背景 buffer 的顏色設為黑色 */
 		glClearColor(0.0, 0.0, 0.0, 1.0);
 		glClear(GL_COLOR_BUFFER_BIT);
+		glFlush();
 
 	/* 將背景 buffer 置換出去
 		glutSwapBuffers(); */
