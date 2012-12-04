@@ -170,7 +170,13 @@ void cbMouse(int button, int state, int x, int y){
 			drawPoint3f(x, y, 1, 0, 0, draw_size);
 			break;
 		case DRAW_LINE:
-
+			glColor3f(1,1,0);
+			glLineWidth(3);
+			glBegin(GL_LINES);
+				glVertex2f(x, window_height - y);
+				glVertex2f(x + 10, window_height - y -10);
+			glEnd();
+			glFlush();
 			break;
 		case DRAW_SQUARE:
 			drawSqare3f(x, y, 0, 0, 1, draw_size);
