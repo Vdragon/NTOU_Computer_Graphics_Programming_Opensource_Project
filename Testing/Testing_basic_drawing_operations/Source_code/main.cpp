@@ -212,7 +212,7 @@ void cbMouseMotion(int x, int y){
 #ifndef NDEBUG
 	std::cout << DEBUG_TAG "您正在於(" << x << ',' << y << ")進行滑鼠拖曳操作。" << std::endl;
 #endif
-	drawSqare3f(x, y, 0, 0, 1, 10);
+
 	return;
 }
 
