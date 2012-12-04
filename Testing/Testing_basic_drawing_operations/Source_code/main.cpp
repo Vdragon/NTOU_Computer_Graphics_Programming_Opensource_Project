@@ -25,19 +25,19 @@ main.cpp
 
 /*||||| 常數與巨集 | Constants & Macros |||||*/
 	/* application window size */
-	#define WINDOW_WIDTH 600
-	#define WINDOW_HEIGHT 360
+		#define WINDOW_WIDTH 600
+		#define WINDOW_HEIGHT 360
 
 	/* message of cbMouse() */
-	#define MESSAGE_MOUSE_BUTTON_PRESSED "按下了"
-	#define MESSAGE_MOUSE_BUTTON_RELEASED "放開了"
-	#define MESSAGE_MOUSE_BUTTON_LEFT "滑鼠左鍵"
-	#define MESSAGE_MOUSE_BUTTON_RIGHT "滑鼠右鍵"
-	#define MESSAGE_MOUSE_BUTTON_MIDDLE "滑鼠中鍵"
-	#define MESSAGE_MOUSE_BUTTON_UNKNOWN "未知的滑鼠按鈕"
+		#define MESSAGE_MOUSE_BUTTON_PRESSED "按下了"
+		#define MESSAGE_MOUSE_BUTTON_RELEASED "放開了"
+		#define MESSAGE_MOUSE_BUTTON_LEFT "滑鼠左鍵"
+		#define MESSAGE_MOUSE_BUTTON_RIGHT "滑鼠右鍵"
+		#define MESSAGE_MOUSE_BUTTON_MIDDLE "滑鼠中鍵"
+		#define MESSAGE_MOUSE_BUTTON_UNKNOWN "未知的滑鼠按鈕"
 
 	/* message of wide width characters */
-	#define CJK_CHINESE_PERIOD "。"
+		#define CJK_CHINESE_PERIOD "。"
 
 /*||||| Definition of data type, enumeration, data structure and class |||||*/
 	/* 選操作選單的項目 */
