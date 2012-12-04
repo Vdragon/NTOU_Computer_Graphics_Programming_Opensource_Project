@@ -196,6 +196,7 @@ void cbMouse(int button, int state, int x, int y){
 					glVertex2f(x + 10, window_height - y + 10);
 				glEnd();
 				glFlush();
+				break;
 			default:
 				break;
 			}
